@@ -1,17 +1,20 @@
-var speedTest=require('speedtest-net');
+var speedTest = require('speedtest-net');
 var gmail = require('./gmailSend');
+var ejs = require('ejs');
+var fs = require('fs');
+
+var template = fs.readFileSync("./template/internetSpeedNotification.ejs");
 
 gmail(function (email) {
 
-    test=speedTest({maxTime:5000});
+    test = speedTest({maxTime: 5000});
 
-    test.on('data',function(speedResult){
-
+    test.on('data', function (speedResult) {
         email.send({
             from: 'guptkashish@gmail.com',
             to: 'guptkashish@gmail.com',
             subject: 'Internet Speed Notification - ' + new Date(),
-            body: JSON.stringify(speedResult)
+            html: ejs.render(template.toString(), {data: speedResult})
         }, function (err, data) {
             if (err) {
                 console.log(err);
@@ -19,10 +22,9 @@ gmail(function (email) {
                 console.log('Email Send Successfully at ' + new Date());
             }
         });
-
     });
 
-    test.on('error',function(err){
+    test.on('error', function (err) {
         email.send({
             from: 'guptkashish@gmail.com',
             to: 'guptkashish@gmail.com',
@@ -36,7 +38,6 @@ gmail(function (email) {
             }
         });
     });
-
 });
 
 

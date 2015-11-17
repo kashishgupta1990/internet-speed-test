@@ -1,0 +1,95 @@
+<html>
+<head>
+    <title>Internet Speed Notification</title>
+    <meta/>
+    <style>
+        body table{
+            width: 25%;
+            margin-left: 40%;
+        }
+        body table tr{
+            border: 1px solid #6d1514;
+        }
+        body table tr td{
+            width: 50%;
+        }
+    </style>
+</head>
+<body>
+<div style="text-align: center">
+    <h2>Internet Speed</h2>
+    <table style="width: 25%;margin-left: 40%;">
+        <tr>
+            <td>Download:</td>
+            <td><%= data.speeds.download %></td>
+        </tr>
+        <tr>
+            <td>Upload:</td>
+            <td><%= data.speeds.upload %></td>
+        </tr>
+        <tr>
+            <td>Original Download:</td>
+            <td><%= data.speeds.originalDownload %></td>
+        </tr>
+        <tr>
+            <td>Original Upload:</td>
+            <td><%= data.speeds.originalUpload %></td>
+        </tr>
+    </table>
+    <h2>Client Information</h2>
+    <table style="width: 25%;margin-left: 40%;">
+        <tr>
+            <td>IP Address:</td>
+            <td><%= data.client.ip %></td>
+        </tr>
+        <tr>
+            <td>Latitude:</td>
+            <td><%= data.client.lat %></td>
+        </tr>
+        <tr>
+            <td>Longitude:</td>
+            <td><%= data.client.lon %></td>
+        </tr>
+        <tr>
+            <td>ISP:</td>
+            <td><%= data.client.isp %></td>
+        </tr>
+        <tr>
+            <td>ISP Rating:</td>
+            <td><%= data.client.isprating %></td>
+        </tr>
+    </table>
+    <h2>Server Information</h2>
+    <table style="width: 25%;margin-left: 40%;">
+        <tr>
+            <td>Host IP:</td>
+            <td><%= data.server.host %></td>
+        </tr>
+        <tr>
+            <td>Latitude:</td>
+            <td><%= data.server.lat %></td>
+        </tr>
+        <tr>
+            <td>Longitude:</td>
+            <td><%= data.server.lon %></td>
+        </tr>
+        <tr>
+            <td>Location:</td>
+            <td><%= data.server.location %></td>
+        </tr>
+        <tr>
+            <td>Country:</td>
+            <td><%= data.server.country %></td>
+        </tr>
+        <tr>
+            <td>Ping:</td>
+            <td><%= data.server.ping %></td>
+        </tr>
+        <tr>
+            <td>Id:</td>
+            <td><%= data.server.id %></td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
